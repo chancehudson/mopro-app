@@ -1,0 +1,30 @@
+[package]
+name = "mopro-app"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "cdylib", "staticlib"]
+name = "mopro_app"
+
+[features]
+default = ["circom"]
+
+# If we enable them here, they should be enabled in mopro-core as well
+halo2 = ["mopro/halo2"]
+circom = ["mopro/circom"]
+
+[dependencies]
+mopro = { path = "../mopro" }
+uniffi = { version = "0.25", features = ["cli", "build"] }
+rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
+paste = "1.0.0"
+num-bigint = "0.4.0"
+
+[build-dependencies]
+
+rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
+mopro = { path = "../mopro" }
+
+[dev-dependencies]
+uniffi = { version = "0.25", features = ["bindgen-tests"] }
