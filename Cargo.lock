@@ -1850,7 +1850,7 @@ dependencies = [
 [[package]]
 name = "mopro"
 version = "0.1.0"
-source = "git+https://github.com/vimwitch/mopro.git?branch=core-delete-2#4f275d620fbd32885e707c1d790a97a8f6685159"
+source = "git+https://github.com/vimwitch/mopro.git?branch=core-delete-2#78824a05dd7ecb71a6dd8a42f0c94c2244c59a36"
 dependencies = [
  "ark-bn254",
  "ark-circom",
