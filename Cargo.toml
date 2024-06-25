@@ -15,7 +15,8 @@ halo2 = ["mopro/halo2"]
 circom = ["mopro/circom"]
 
 [dependencies]
-mopro = { path = "../mopro" }
+# mopro = { path = "../mopro" }
+mopro = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
 uniffi = { version = "0.25", features = ["cli", "build"] }
 rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
 paste = "1.0.0"
@@ -24,7 +25,8 @@ num-bigint = "0.4.0"
 [build-dependencies]
 
 rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
-mopro = { path = "../mopro" }
+# mopro = { path = "../mopro" }
+mopro = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
 
 [dev-dependencies]
 uniffi = { version = "0.25", features = ["bindgen-tests"] }
