@@ -1,3 +1,6 @@
 /target
 *.udl
 .DS_Store
+
+MoproBindings.xcframework/
+build/

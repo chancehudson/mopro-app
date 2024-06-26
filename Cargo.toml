@@ -5,19 +5,18 @@ edition = "2021"
 
 [lib]
 crate-type = ["lib", "cdylib", "staticlib"]
-name = "mopro_app"
+name = "mopro_bindings"
+
+[[bin]]
+name = "ios"
 
 [features]
-default = ["circom"]
-
-# If we enable them here, they should be enabled in mopro-core as well
-halo2 = ["mopro/halo2"]
-circom = ["mopro/circom"]
+default = ["mopro-ffi/circom"]
 
 [dependencies]
-# mopro = { path = "../mopro" }
-mopro = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
-uniffi = { version = "0.25", features = ["cli", "build"] }
+mopro-ffi = { path = "../mopro/mopro-ffi" }
+#mopro-ffi = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
+uniffi = { version = "0.28", features = ["cli"] }
 rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
 paste = "1.0.0"
 num-bigint = "0.4.0"
@@ -25,8 +24,9 @@ num-bigint = "0.4.0"
 [build-dependencies]
 
 rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
-# mopro = { path = "../mopro" }
-mopro = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
+mopro-ffi = { path = "../mopro/mopro-ffi" }
+#mopro-ffi = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
+uniffi = { version = "0.28", features = ["build"] }
 
 [dev-dependencies]
-uniffi = { version = "0.25", features = ["bindgen-tests"] }
+uniffi = { version = "0.28", features = ["bindgen-tests"] }
