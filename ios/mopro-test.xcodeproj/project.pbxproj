@@ -169,7 +169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\necho $DEVELOPER_SDK_DIR\n# Without this we can't compile on MacOS Big Sur\n# https://github.com/TimNN/cargo-lipo/issues/41#issuecomment-774793892\nif [[ -n \"${DEVELOPER_SDK_DIR:-}\" ]]; then\n  export LIBRARY_PATH=\"${LIBRARY_PATH}:${DEVELOPER_SDK_DIR}/MacOSX.sdk/usr/lib\"\nfi\n\ncargo build --bin ios\ncd ..\n./target/debug/ios || true\n";
+			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\necho $DEVELOPER_SDK_DIR\n# Without this we can't compile on MacOS Big Sur\n# https://github.com/TimNN/cargo-lipo/issues/41#issuecomment-774793892\nif [[ -n \"${DEVELOPER_SDK_DIR:-}\" ]]; then\n  export LIBRARY_PATH=\"${LIBRARY_PATH}:${DEVELOPER_SDK_DIR}/MacOSX.sdk/usr/lib\"\nfi\n\ncargo build --bin ios\n";
 		};
 		4CF978282C2C141800CE1139 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -186,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\ncd ..\n./build/debug/ios\n";
+			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\ncd ..\n./target/debug/ios\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -344,7 +344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mrfunderthuck.mopro-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopro.mopro-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -373,7 +373,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mrfunderthuck.mopro-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopro.mopro-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
