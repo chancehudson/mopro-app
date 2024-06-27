@@ -17,13 +17,13 @@ default = ["mopro-ffi/circom"]
 #mopro-ffi = { path = "../mopro/mopro-ffi" }
 mopro-ffi = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
 uniffi = { version = "0.28", features = ["cli"] }
-rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
+rust-witness = { git = "https://github.com/vimwitch/rust-witness.git" }
 paste = "1.0.0"
 num-bigint = "0.4.0"
 
 [build-dependencies]
 
-rust-witness = { git = "https://github.com/zkmopro/rust-witness.git" }
+rust-witness = { git = "https://github.com/vimwitch/rust-witness.git" }
 #mopro-ffi = { path = "../mopro/mopro-ffi" }
 mopro-ffi = { git = "https://github.com/vimwitch/mopro.git", branch = "core-delete-2" }
 uniffi = { version = "0.28", features = ["build"] }
