@@ -92,8 +92,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CF977F92C2BCF0300CE1139 /* Build configuration list for PBXNativeTarget "mopro-test" */;
 			buildPhases = (
-				4CF978272C2C10E600CE1139 /* ShellScript */,
-				4CF978282C2C141800CE1139 /* ShellScript */,
 				4CF977E72C2BCF0000CE1139 /* Sources */,
 				4CF977E92C2BCF0000CE1139 /* Resources */,
 				4CF977E82C2BCF0000CE1139 /* Frameworks */,
@@ -152,43 +150,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4CF978272C2C10E600CE1139 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\necho $DEVELOPER_SDK_DIR\n# Without this we can't compile on MacOS Big Sur\n# https://github.com/TimNN/cargo-lipo/issues/41#issuecomment-774793892\nif [[ -n \"${DEVELOPER_SDK_DIR:-}\" ]]; then\n  export LIBRARY_PATH=\"${LIBRARY_PATH}:${DEVELOPER_SDK_DIR}/MacOSX.sdk/usr/lib\"\nfi\n\ncargo build --bin ios\n";
-		};
-		4CF978282C2C141800CE1139 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$HOME/.cargo/bin:$PATH\"\n\ncd ..\n./target/debug/ios\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CF977E72C2BCF0000CE1139 /* Sources */ = {
