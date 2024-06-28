@@ -1303,7 +1303,7 @@ dependencies = [
 [[package]]
 name = "mopro-ffi"
 version = "0.1.0"
-source = "git+https://github.com/vimwitch/mopro.git#14372486364b9507baa9aba81add61bd412479ad"
+source = "git+https://github.com/vimwitch/mopro.git#4f56bfb52241326ab4a734290ffe3734f5062c5a"
 dependencies = [
  "ark-bn254",
  "ark-circom",
