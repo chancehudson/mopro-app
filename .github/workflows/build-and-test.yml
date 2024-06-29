@@ -139,6 +139,6 @@ jobs:
                 cp -r MoproAndroidBindings/uniffi android/app/src/main/java/
                 cp -r MoproAndroidBindings/jniLibs android/app/src/main/
                 mkdir -p android/app/src/main/assets
-                cp test-vectors/multiplier3_final.zkey android/app/src/main/assets/
+                cp test-vectors/circom/multiplier3_final.zkey android/app/src/main/assets/
             - name: Build android app
               run: cd android && ./gradlew tasks
