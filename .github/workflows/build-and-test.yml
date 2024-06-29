@@ -141,4 +141,4 @@ jobs:
                 mkdir -p android/app/src/main/assets
                 cp test-vectors/circom/multiplier3_final.zkey android/app/src/main/assets/
             - name: Build android app
-              run: cd android && ./gradlew tasks
+              run: cd android && ./gradlew build
