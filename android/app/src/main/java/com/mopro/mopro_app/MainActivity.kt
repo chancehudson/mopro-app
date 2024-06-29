@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,8 +38,9 @@ class MainActivity : ComponentActivity() {
                     val s = assets.open("multiplier3_final.zkey")
                     val f = File(filesDir, "multiplier3_final.zkey")
                     copyFile(s, f.outputStream())
-//                    resources.openRawResourceFd()!!.fileDescriptor!!.
-                    MultiplierComponent(f.absolutePath)
+                    Column(modifier = Modifier.fillMaxSize().padding(paddingValues = innerPadding)) {
+                        MultiplierComponent(f.absolutePath)
+                    }
                 }
             }
         }

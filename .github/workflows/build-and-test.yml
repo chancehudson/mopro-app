@@ -136,9 +136,5 @@ jobs:
                 mv MoproAndroidBindings/jniLibs/armeabi-v7a/libmopro_bindings.so MoproAndroidBindings/jniLibs/armeabi-v7a/libuniffi_mopro.so
                 mv MoproAndroidBindings/jniLibs/arm64-v8a/libmopro_bindings.so MoproAndroidBindings/jniLibs/arm64-v8a/libuniffi_mopro.so
                 mv MoproAndroidBindings/jniLibs/x86/libmopro_bindings.so MoproAndroidBindings/jniLibs/x86/libuniffi_mopro.so
-                cp -r MoproAndroidBindings/uniffi android/app/src/main/java/
-                cp -r MoproAndroidBindings/jniLibs android/app/src/main/
-                mkdir -p android/app/src/main/assets
-                cp test-vectors/circom/multiplier3_final.zkey android/app/src/main/assets/
             - name: Build android app
               run: cd android && ./gradlew build
