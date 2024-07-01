@@ -73,6 +73,24 @@ jobs:
                 key: ${{ github.sha }}-xcframework
             - name: Build app for device
               run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    build-ios-app-simulator:
+        runs-on: macos-latest
+        needs: build-xcframework
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install Rust toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  toolchain: stable
+                  override: true
+            - name: Restore cached xcframework
+              id: cache-restore-xcframework
+              uses: actions/cache/restore@v4
+              with:
+                path: MoproBindings.xcframework
+                key: ${{ github.sha }}-xcframework
+            - name: Build app for device
+              run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS\ Simulator build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
     test-ios-app-simulator:
         runs-on: macos-14
         needs: build-xcframework
