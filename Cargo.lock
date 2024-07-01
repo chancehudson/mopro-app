@@ -1303,7 +1303,7 @@ dependencies = [
 [[package]]
 name = "mopro-ffi"
 version = "0.1.0"
-source = "git+https://github.com/vimwitch/mopro.git#7ba93c46a08a0612105bbbb7210426495e6b8495"
+source = "git+https://github.com/vimwitch/mopro.git#f9255e89918be9a829344ac6068c22e69f8426cf"
 dependencies = [
  "ark-bn254",
  "ark-circom",
@@ -1909,9 +1909,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.119"
+version = "1.0.120"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8eddb61f0697cc3989c5d64b452f5488e2b8a60fd7d5076a3045076ffef8cb0"
+checksum = "4e0d21c9a8cae1235ad58a00c11cb40d4b1e5c784f1ef2c537876ed6ffd8b7c5"
 dependencies = [
  "itoa",
  "ryu",

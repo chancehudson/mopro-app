@@ -6,3 +6,4 @@ MoproBindings.xcframework/
 build/
 jniLibs/
 MoproAndroidBindings/
+MoproiOSBindings/
