@@ -53,7 +53,7 @@ jobs:
             id: cache-xcframework
             uses: actions/cache/save@v4
             with:
-              path: MoproBindings.xcframework
+              path: MoproiOSBindings
               key: ${{ github.sha }}-xcframework
     build-ios-app-device:
         runs-on: macos-latest
@@ -69,7 +69,7 @@ jobs:
               id: cache-restore-xcframework
               uses: actions/cache/restore@v4
               with:
-                path: MoproBindings.xcframework
+                path: MoproiOSBindings
                 key: ${{ github.sha }}-xcframework
             - name: Build app for device
               run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
@@ -87,7 +87,7 @@ jobs:
               id: cache-restore-xcframework
               uses: actions/cache/restore@v4
               with:
-                path: MoproBindings.xcframework
+                path: MoproiOSBindings
                 key: ${{ github.sha }}-xcframework
             - name: Build app for device
               run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS\ Simulator build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
@@ -105,7 +105,7 @@ jobs:
               id: cache-restore-xcframework
               uses: actions/cache/restore@v4
               with:
-                path: MoproBindings.xcframework
+                path: MoproiOSBindings
                 key: ${{ github.sha }}-xcframework
             # to list available simulators: xcrun simctl list devices
             - name: Test app in simulator
