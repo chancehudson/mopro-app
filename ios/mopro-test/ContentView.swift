@@ -50,17 +50,18 @@ struct ContentView: View {
     @State private var isVerifyButtonEnabled = false
     @State private var generatedProof: Data?
     @State private var publicInputs: Data?
-
+    
     var body: some View {
         VStack(spacing: 10) {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Button("Prove", action: runProveAction).disabled(!isProveButtonEnabled)
-            Button("Verify", action: runVerifyAction).disabled(!isVerifyButtonEnabled)
+            Button("Prove", action: runProveAction).disabled(!isProveButtonEnabled).accessibilityIdentifier("prove")
+            Button("Verify", action: runVerifyAction).disabled(!isVerifyButtonEnabled).accessibilityIdentifier("verify")
             ScrollView {
                 Text(textViewText)
                     .padding()
+                    .accessibilityIdentifier("proof_log")
             }
             .frame(height: 200)
         }
@@ -70,84 +71,79 @@ struct ContentView: View {
 
 extension ContentView {
     func runProveAction() {
-         textViewText += "Generating proof... "
-         Task {
-             do {
-                 // Prepare inputs
-                 var inputs = [String: [String]]()
-                 let a = 3
-                 let b = 5
-                 let c = a*b
-                 inputs["a"] = [String(a)]
-                 inputs["b"] = [String(b)]
-                 
-                 // Expected outputs
-                 let outputs: [String] = [String(c), String(a)]
-                 let expectedOutput: [UInt8] = serializeOutputs(outputs)
-                 
-                 let start = CFAbsoluteTimeGetCurrent()
-                 
-                 let zkeyPath = Bundle.main.path(forResource: "multiplier3_final", ofType: "zkey")!
-                 // Generate Proof
-                 let generateProofResult = try generateCircomProof(zkeyPath: zkeyPath, circuitInputs: inputs)
-                 assert(!generateProofResult.proof.isEmpty, "Proof should not be empty")
-                 assert(Data(expectedOutput) == generateProofResult.inputs, "Circuit outputs mismatch the expected outputs")
-
-                 let end = CFAbsoluteTimeGetCurrent()
-                 let timeTaken = end - start
-
-                 // Store the generated proof and public inputs for later verification
-                 generatedProof = generateProofResult.proof
-                 publicInputs = generateProofResult.inputs
-
-                 textViewText += "\(String(format: "%.3f", timeTaken))s\n"
-
-                 isVerifyButtonEnabled = true
-             } catch {
-                 textViewText += "\nProof generation failed: \(error.localizedDescription)\n"
-             }
-         }
-     }
-
+        textViewText += "Generating proof... "
+        do {
+            // Prepare inputs
+            var inputs = [String: [String]]()
+            let a = 3
+            let b = 5
+            let c = a*b
+            inputs["a"] = [String(a)]
+            inputs["b"] = [String(b)]
+            
+            // Expected outputs
+            let outputs: [String] = [String(c), String(a)]
+            let expectedOutput: [UInt8] = serializeOutputs(outputs)
+            
+            let start = CFAbsoluteTimeGetCurrent()
+            
+            let zkeyPath = Bundle.main.path(forResource: "multiplier3_final", ofType: "zkey")!
+            // Generate Proof
+            let generateProofResult = try generateCircomProof(zkeyPath: zkeyPath, circuitInputs: inputs)
+            assert(!generateProofResult.proof.isEmpty, "Proof should not be empty")
+            assert(Data(expectedOutput) == generateProofResult.inputs, "Circuit outputs mismatch the expected outputs")
+            
+            let end = CFAbsoluteTimeGetCurrent()
+            let timeTaken = end - start
+            
+            // Store the generated proof and public inputs for later verification
+            generatedProof = generateProofResult.proof
+            publicInputs = generateProofResult.inputs
+            
+            textViewText += "\(String(format: "%.3f", timeTaken))s 1️⃣\n"
+            
+            isVerifyButtonEnabled = true
+        } catch {
+            textViewText += "\nProof generation failed: \(error.localizedDescription)\n"
+        }
+    }
+    
     func runVerifyAction() {
         guard let proof = generatedProof,
               let inputs = publicInputs else {
             textViewText += "Proof has not been generated yet.\n"
             return
         }
-
+        
         textViewText += "Verifying proof... "
-        Task {
-             do {
-                 let start = CFAbsoluteTimeGetCurrent()
-
-                 let zkeyPath = Bundle.main.path(forResource: "multiplier3_final", ofType: "zkey")!
-                 let isValid = try verifyCircomProof(zkeyPath: zkeyPath, proof: proof, publicInput: inputs)
-                 let end = CFAbsoluteTimeGetCurrent()
-                 let timeTaken = end - start
-
-                 // Convert proof to Ethereum compatible proof
-                 let ethereumProof = toEthereumProof(proof: proof)
-                 let ethereumInputs = toEthereumInputs(inputs: inputs)
-                 assert(ethereumProof.a.x.count > 0, "Proof should not be empty")
-                 assert(ethereumInputs.count > 0, "Inputs should not be empty")
-
-                 print("Ethereum Proof: \(ethereumProof)\n")
-                 print("Ethereum Inputs: \(ethereumInputs)\n")
-
-                 if isValid {
-                     textViewText += "\(String(format: "%.3f", timeTaken))s\n"
-
-                 } else {
-                     textViewText += "\nProof verification failed.\n"
-                 }
-                 isVerifyButtonEnabled = false
-             } catch let error as MoproError {
-                 print("\nMoproError: \(error)")
-             } catch {
-                 print("\nUnexpected error: \(error)")
-             }
-         }
+        do {
+            let start = CFAbsoluteTimeGetCurrent()
+            
+            let zkeyPath = Bundle.main.path(forResource: "multiplier3_final", ofType: "zkey")!
+            let isValid = try verifyCircomProof(zkeyPath: zkeyPath, proof: proof, publicInput: inputs)
+            let end = CFAbsoluteTimeGetCurrent()
+            let timeTaken = end - start
+            
+            // Convert proof to Ethereum compatible proof
+            let ethereumProof = toEthereumProof(proof: proof)
+            let ethereumInputs = toEthereumInputs(inputs: inputs)
+            assert(ethereumProof.a.x.count > 0, "Proof should not be empty")
+            assert(ethereumInputs.count > 0, "Inputs should not be empty")
+            
+            print("Ethereum Proof: \(ethereumProof)\n")
+            print("Ethereum Inputs: \(ethereumInputs)\n")
+            
+            if isValid {
+                textViewText += "\(String(format: "%.3f", timeTaken))s 2️⃣\n"
+            } else {
+                textViewText += "\nProof verification failed.\n"
+            }
+            isVerifyButtonEnabled = false
+        } catch let error as MoproError {
+            print("\nMoproError: \(error)")
+        } catch {
+            print("\nUnexpected error: \(error)")
+        }
     }
 }
 

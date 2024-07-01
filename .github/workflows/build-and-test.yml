@@ -70,8 +70,8 @@ jobs:
                 key: ${{ github.sha }}-xcframework
             - name: Build app for device
               run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-    build-ios-app-simulator:
-        runs-on: macos-latest
+    test-ios-app-simulator:
+        runs-on: macos-14
         needs: build-xcframework
         steps:
             - uses: actions/checkout@v4
@@ -86,5 +86,6 @@ jobs:
               with:
                 path: MoproBindings.xcframework
                 key: ${{ github.sha }}-xcframework
+            # to list available simulators: xcrun simctl list devices
             - name: Build app for simulator
-              run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination generic/platform=iOS\ Simulator build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+              run: xcodebuild -project ./ios/mopro-test.xcodeproj -scheme mopro-test -destination 'platform=iOS Simulator,name=iPhone 15' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO

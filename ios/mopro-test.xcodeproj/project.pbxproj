@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C05CDB22C327C4F00BEBACD /* mopro_test_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05CDB12C327C4F00BEBACD /* mopro_test_UITests.swift */; };
 		4CF977EF2C2BCF0000CE1139 /* mopro_testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF977EE2C2BCF0000CE1139 /* mopro_testApp.swift */; };
 		4CF977F12C2BCF0000CE1139 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF977F02C2BCF0000CE1139 /* ContentView.swift */; };
 		4CF977F32C2BCF0300CE1139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF977F22C2BCF0300CE1139 /* Assets.xcassets */; };
@@ -16,7 +17,19 @@
 		4CF978142C2BF49200CE1139 /* mopro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF978132C2BF49200CE1139 /* mopro.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C05CDB52C327C4F00BEBACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CF977E32C2BCF0000CE1139 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CF977EA2C2BCF0000CE1139;
+			remoteInfo = "mopro-test";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4C05CDAF2C327C4F00BEBACD /* mopro-test-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mopro-test-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C05CDB12C327C4F00BEBACD /* mopro_test_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mopro_test_UITests.swift; sourceTree = "<group>"; };
 		4CF977EB2C2BCF0000CE1139 /* mopro-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mopro-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF977EE2C2BCF0000CE1139 /* mopro_testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mopro_testApp.swift; sourceTree = "<group>"; };
 		4CF977F02C2BCF0000CE1139 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,6 +41,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4C05CDAC2C327C4F00BEBACD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF977E82C2BCF0000CE1139 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,11 +59,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C05CDB02C327C4F00BEBACD /* mopro-test-UITests */ = {
+			isa = PBXGroup;
+			children = (
+				4C05CDB12C327C4F00BEBACD /* mopro_test_UITests.swift */,
+			);
+			path = "mopro-test-UITests";
+			sourceTree = "<group>";
+		};
 		4CF977E22C2BCF0000CE1139 = {
 			isa = PBXGroup;
 			children = (
 				4CF9780E2C2BF43000CE1139 /* multiplier3_final.zkey */,
 				4CF977ED2C2BCF0000CE1139 /* mopro-test */,
+				4C05CDB02C327C4F00BEBACD /* mopro-test-UITests */,
 				4CF977EC2C2BCF0000CE1139 /* Products */,
 				4CF978102C2BF45500CE1139 /* Frameworks */,
 			);
@@ -53,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4CF977EB2C2BCF0000CE1139 /* mopro-test.app */,
+				4C05CDAF2C327C4F00BEBACD /* mopro-test-UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +118,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4C05CDAE2C327C4F00BEBACD /* mopro-test-UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C05CDB92C327C4F00BEBACD /* Build configuration list for PBXNativeTarget "mopro-test-UITests" */;
+			buildPhases = (
+				4C05CDAB2C327C4F00BEBACD /* Sources */,
+				4C05CDAC2C327C4F00BEBACD /* Frameworks */,
+				4C05CDAD2C327C4F00BEBACD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C05CDB62C327C4F00BEBACD /* PBXTargetDependency */,
+			);
+			name = "mopro-test-UITests";
+			productName = "mopro-test-UITests";
+			productReference = 4C05CDAF2C327C4F00BEBACD /* mopro-test-UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4CF977EA2C2BCF0000CE1139 /* mopro-test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CF977F92C2BCF0300CE1139 /* Build configuration list for PBXNativeTarget "mopro-test" */;
@@ -115,6 +163,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					4C05CDAE2C327C4F00BEBACD = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 4CF977EA2C2BCF0000CE1139;
+					};
 					4CF977EA2C2BCF0000CE1139 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -134,11 +186,19 @@
 			projectRoot = "";
 			targets = (
 				4CF977EA2C2BCF0000CE1139 /* mopro-test */,
+				4C05CDAE2C327C4F00BEBACD /* mopro-test-UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C05CDAD2C327C4F00BEBACD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF977E92C2BCF0000CE1139 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +212,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C05CDAB2C327C4F00BEBACD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C05CDB22C327C4F00BEBACD /* mopro_test_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CF977E72C2BCF0000CE1139 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,7 +232,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4C05CDB62C327C4F00BEBACD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CF977EA2C2BCF0000CE1139 /* mopro-test */;
+			targetProxy = 4C05CDB52C327C4F00BEBACD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4C05CDB72C327C4F00BEBACD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopro.mopro-test-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mopro-test";
+			};
+			name = Debug;
+		};
+		4C05CDB82C327C4F00BEBACD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopro.mopro-test-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mopro-test";
+			};
+			name = Release;
+		};
 		4CF977F72C2BCF0300CE1139 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -345,6 +453,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C05CDB92C327C4F00BEBACD /* Build configuration list for PBXNativeTarget "mopro-test-UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C05CDB72C327C4F00BEBACD /* Debug */,
+				4C05CDB82C327C4F00BEBACD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CF977E62C2BCF0000CE1139 /* Build configuration list for PBXProject "mopro-test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
