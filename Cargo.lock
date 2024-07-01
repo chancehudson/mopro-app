@@ -1303,7 +1303,7 @@ dependencies = [
 [[package]]
 name = "mopro-ffi"
 version = "0.1.0"
-source = "git+https://github.com/vivianjeng/mopro.git?branch=android-build#adc9121a0133e7d5c3ae4cfd43b27b08a00dca80"
+source = "git+https://github.com/vimwitch/mopro.git#7ba93c46a08a0612105bbbb7210426495e6b8495"
 dependencies = [
  "ark-bn254",
  "ark-circom",

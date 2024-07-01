@@ -129,12 +129,5 @@ jobs:
               uses: android-actions/setup-android@v2.0.10
             - name: Build android library
               run: cargo run --bin android
-            # temporary step while waiting on changes to PR
-            - name: Patch android files
-              run: |
-                mv MoproAndroidBindings/jniLibs/x86_64/libmopro_bindings.so MoproAndroidBindings/jniLibs/x86_64/libuniffi_mopro.so
-                mv MoproAndroidBindings/jniLibs/armeabi-v7a/libmopro_bindings.so MoproAndroidBindings/jniLibs/armeabi-v7a/libuniffi_mopro.so
-                mv MoproAndroidBindings/jniLibs/arm64-v8a/libmopro_bindings.so MoproAndroidBindings/jniLibs/arm64-v8a/libuniffi_mopro.so
-                mv MoproAndroidBindings/jniLibs/x86/libmopro_bindings.so MoproAndroidBindings/jniLibs/x86/libuniffi_mopro.so
             - name: Build android app
               run: cd android && ./gradlew build
